@@ -1,8 +1,19 @@
 from fastapi import FastAPI;
-from app.routes.routes import router as appRoutes;
+from fastapi.staticfiles import StaticFiles
+from app.routes.routes import router as appRoutes
+from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/')
 def root():

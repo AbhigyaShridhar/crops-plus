@@ -6,3 +6,4 @@ pandas
 nltk
 gunicorn
 pydantic
+starlette
