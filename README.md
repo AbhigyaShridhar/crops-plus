@@ -19,5 +19,13 @@ This is a scikit-learn based project which predicts the type of soil based on 10
   ```
   3. Clone this project
   
+  4. To run and test the project locally, run:
+  ```shell
+    uvicorn main:app
+  ```
+  than go to `127.0.0.0:8000/docs` to view the **swagger UI** for the API
+  The **Gunicorn** command to deploy the API on cloud has been given in the dockerfile.
+  However, you can check if it's working properly by running `gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app`
+  
   ## About the project
   The algorithm utilizes **scikit-learn**, **numpy** and **pandas** to generate results. The results are taken to an API using **FastAPI** and **pydantic**. To deploy the API on **Azure**, the backend has been containerized with **Docker** and shipped with **Gunicorn** and **Uvicorn**.
